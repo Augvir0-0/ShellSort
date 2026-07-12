@@ -1,0 +1,28 @@
+# Project: ShellSort
+# Makefile created by Dev-C++
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = myTest.o
+LINKOBJ  = myTest.o
+LIBS     = -static-libgcc
+INCS     = 
+CXXINCS  = 
+BIN      = ShellSort.exe
+CXXFLAGS = -std=c++17
+CFLAGS   = -std=c++17
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+myTest.o: myTest.cpp mySort.h
+	$(CPP) -c myTest.cpp -o myTest.o $(CXXFLAGS)
